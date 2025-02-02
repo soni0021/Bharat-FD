@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6.0
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  redis:
+    image: redis:7.0
+    volumes:
+      - redis_data:/data
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      MONGODB_URI: mongodb://root:example@mongo:27017/faq-system?authSource=admin
+      REDIS_URL: redis://redis:6379
+      TRANSLATION_SERVICE_URL: http://translator:8000
+    depends_on:
+      - mongo
+      - redis
+      - translator
+
+  translator:
+    build: ./translation-service
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://backend:5000/api
+
+volumes:
+  mongo_data:
+  redis_data: 

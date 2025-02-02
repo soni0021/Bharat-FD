@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default function toList(candidate) {\n  let skipEmpty = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;\n  if (skipEmpty && (candidate === undefined || candidate === null)) return [];\n  return Array.isArray(candidate) ? candidate : [candidate];\n}","map":null,"metadata":{},"sourceType":"module"}
