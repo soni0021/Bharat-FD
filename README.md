@@ -2,6 +2,8 @@
 
 **FAQ App** is a full-stack application designed to manage frequently asked questions (FAQs) with ease. It supports **CRUD operations**, **multi-language translations**, and **caching** for improved performance. Built with modern technologies, it offers a seamless experience for both developers and end-users.
 
+► Watch the highlight video: [YouTube Video](https://www.youtube.com/watch?v=EDWAgfARqhc)
+
 ---
 
 ## ✨ Features
