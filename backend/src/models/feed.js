@@ -4,8 +4,7 @@ import FAQ from './faq.model.js';
 
 dotenv.config();
 
-const uri = process.env.MONGODB_URI || 'mongodb+srv://manishkumarsoni80:Soni1234@faqdb.ol2et.mongodb.net/test?retryWrites=true&w=majority';
-
+const uri = process.env.MONGODB_URI ;
 // This function could be expanded to generate translations if needed.
 // For now, it returns an empty object.
 async function generateTranslations(question, answer) {
